@@ -1,0 +1,13 @@
+version: '3'
+services:
+  next:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - .:/app
+    command: sh -c "cd src && npm run dev"
+    ports:
+      - "3000:3000" # 開発用
+      - "4000:4000" # 本番用
